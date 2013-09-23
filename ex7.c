@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main(int argc, char *argv[])
 {
@@ -7,7 +8,8 @@ int main(int argc, char *argv[])
 
 	printf("You have %d bugs at the imaginary rate of %f.\n", bugs, bug_rate);
 	
-	long universe_of_defects = 1L * 1024L * 1024L * 1024L;
+	unsigned long universe_of_defects = 1L * 1024L * 1024L * 1024L * 1024L * 1024L * 1024L;
+	//long universe_of_defects = INT_MAX + 2;
 	printf("The Universe has %ld bugs.\n", universe_of_defects);
 
 	double expected_bugs = bugs * bug_rate;
@@ -16,7 +18,7 @@ int main(int argc, char *argv[])
 	double part_of_universe = expected_bugs / universe_of_defects;
 	printf("That is only a %e portion of the universe.\n", part_of_universe);
 
-	// Demo of something wierd
+	// Demo of something weird
 	char nul_byte = '\0';
 	int care_percentage = bugs * nul_byte;
 	printf("Which means you should care %d%%.\n", care_percentage);
